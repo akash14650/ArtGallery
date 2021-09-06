@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>info</title>
+ <link rel="stylesheet" href="main.css">
+
+<style type="text/css">
+ *{
+   margin: 0px;
+}
+h1{
+ text-align: center;
+}
+p{
+ font-size: 25px;
+}
+header{
+font-size: 30px;
+padding: 20px;
+}
+main{
+      
+        width: 100%;
+        margin-top: 40px;
+}
+
+
+audio:hover, audio:focus, audio:active
+{
+-webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-webkit-transform: scale(1.05);
+-moz-transform: scale(1.05);
+transform: scale(1.05);
+}
+audio
+{
+-webkit-transition:all 0.5s linear;
+-moz-transition:all 0.5s linear;
+-o-transition:all 0.5s linear;
+transition:all 0.5s linear;
+-moz-box-shadow: 2px 2px 4px 0px #006773;
+-webkit-box-shadow:  2px 2px 4px 0px #006773;
+box-shadow: 2px 2px 4px 0px #006773;
+-moz-border-radius:7px 7px 7px 7px ;
+-webkit-border-radius:7px 7px 7px 7px ;
+border-radius:7px 7px 7px 7px ;
+}
+video{
+	text-align: center;
+	width: 80%;
+	height: 500px;
+}
+iframe{
+	margin-top: 20px;
+margin-bottom: 30px;
+margin-left: 100px;
+padding-left: 100px;
+-moz-border-radius: 12px;
+-webkit-border-radius: 12px;
+-moz-box-shadow: 4px 4px 14px white;
+-webkit-box-shadow: 4px 4px 14px white;
+}
+</style>
+
+</head>
+<body style="background-color: #0094ff;">
+<header>
+ <div class="navbar">
+    <h1 class="logo"> <span>Art</span><span>Gallery</span></h1>
+    <ul class="nav">
+<li><a href="index.html"><span>Home</span></a></li>
+<li><a href="gallery.html"><span>Gal<span>lery</span></span></a></li>
+<li><a href="events.html"><span>Eve<span>nts</span></span></a></li>
+<li><a href="info.html" class="active"><span>In<span>fo</span></span></a></li>
+</ul>
+</div>
+<hr/>
+<br>
+</header>
+
+<main>
+ <div>
+ 	<h1 style="color: pink;">List of Audio for Art Gallery:</h1>
+ 	<p>Click on the play button to play a sound:</p>
+
+	<audio controls>
+  		<source src="horse.mp3" type="audio/mpeg">
+	</audio>
+	<br><br>
+	<audio controls>
+  		<source src="hi.m4a" type="audio/mpeg">
+	</audio>
+
+ 	<hr>
+ 	<h1 style="color: palegreen;">List of Video for Art Gallery</h1>
+ 	<video controls>
+  		<source src="http://cdn.clipcanvas.com/sample/clipcanvas_14348_H264_320x180.mp4" style="">
+	</video>
+	<hr>
+	<iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Seattle,+WA&amp;aq=0&amp;oq=seattle&amp;sll=37.822293,-85.76824&amp;sspn=6.628688,16.907959&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Seattle,+King,+Washington&amp;z=11&amp;ll=47.60621,-122.332071&amp;output=embed" frameborder="2" width="80%" height="400px"></iframe>
+	<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"frameborder="2" width="80%" height="400px"></iframe>
+ </div>
+</main>
+</body>
+</html>

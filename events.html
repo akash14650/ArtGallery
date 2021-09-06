@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>events</title>
+
+<style type="text/css">
+ *{
+   margin: 0px;
+}
+.navbar{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #D4D7DE;
+    width: 100%;
+    height: 70px;
+    z-index: 1;
+}
+.nav{
+    display: flex;
+    justify-content: right;
+    list-style: none;
+    margin-right: 15%;
+}.active{
+    text-decoration: underline;
+
+}
+
+header{
+font-size: 30px;
+padding: 20px;
+}
+main{
+      margin-left: 120px;
+        width: 100%;
+        margin-top: 40px;
+}
+:root {
+    --card-height: 40vw;
+    --card-margin: 4vw;
+    --card-top-offset: 1em;
+    --numcards: 4;
+    --outline-width: 0px;
+}
+
+#cards {
+    padding-bottom: calc(var(--numcards) * var(--card-top-offset)); /* Make place at bottom, as items will slide to that position*/
+    margin-bottom: var(--card-margin); /* Don't include the --card-margin in padding, as that will affect the scroll-timeline*/
+}
+
+#card_1 {
+    --index: 1;
+}
+
+#card_2 {
+    --index: 2;
+}
+
+#card_3 {
+    --index: 3;
+}
+
+#card_4 {
+    --index: 4;
+}
+
+.card {
+    position: sticky;
+    top: 0;
+    padding-top: calc(var(--index) * var(--card-top-offset));
+}
+
+@supports (animation-timeline: works) {
+
+    @scroll-timeline cards-element-scrolls-in-body {
+        source: selector(body);
+        scroll-offsets:
+            /* Start when the start edge touches the top of the scrollport */
+            selector(#cards) start 1,
+            /* End when the start edge touches the start of the scrollport */
+            selector(#cards) start 0
+        ;
+        start: selector(#cards) start 1; /* Start when the start edge touches the top of the scrollport */
+        end: selector(#cards) start 0; /* End when the start edge touches the start of the scrollport */
+        time-range: 4s;
+    }
+
+    .card {
+        --index0: calc(var(--index) - 1); /* 0-based index */
+        --reverse-index: calc(var(--numcards) - var(--index0)); /* reverse index */
+        --reverse-index0: calc(var(--reverse-index) - 1); /* 0-based reverse index */
+    }
+    
+    .card__content {
+        transform-origin: 50% 0%;
+        will-change: transform;
+
+        --duration: calc(var(--reverse-index0) * 1s);
+        --delay: calc(var(--index0) * 1s);
+
+        animation: var(--duration) linear scale var(--delay) forwards;
+        animation-timeline: cards-element-scrolls-in-body;
+    }
+
+    @keyframes scale {
+        to {
+            transform:
+                scale(calc(
+                    1.1
+                    -
+                    calc(0.1 * var(--reverse-index))
+                ));
+        }
+    }
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(58 29 43);
+    color: rgb(255, 255, 255);
+    text-align: center;
+
+    font-size: calc(1em + 0.5vw);
+}
+
+
+main {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+
+#cards {
+    list-style: none;
+    outline: calc(var(--outline-width) * 10) solid blue;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--numcards), var(--card-height));
+    gap: var(--card-margin);
+}
+
+.card {
+    outline: var(--outline-width) solid hotpink;
+}
+
+.card__content {
+    box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    color: rgb(10, 5, 7);
+    border-radius: 1em;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-areas: "text img";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+
+    align-items: stretch;
+    outline: var(--outline-width) solid lime;
+}
+
+.card__content > div {
+    grid-area: text;
+    width: 80%;
+    place-self: center;
+    text-align: left;
+
+    display: grid;
+    gap: 1em;
+    place-items: start;
+}
+
+.card__content > figure {
+    grid-area: img;
+    overflow: hidden;
+}
+
+.card__content > figure > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 3.5em;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 2.5em;
+}
+
+p {
+    font-family: sans-serif;
+    font-weight: 300;
+    line-height: 1.42;
+}
+
+img{
+ width: 80%;
+    border-radius: 4px;
+    height: 200px;
+}h1{
+  color: #484848;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer
+}
+h1 span{
+  transition: .5s linear
+}
+h1:hover span:nth-child(1){
+  margin-right: 2px
+}
+h1:hover span:nth-child(1):after{
+  content: "--";
+}
+h1:hover span:nth-child(2){
+  margin-left: 10px
+}
+h1:hover span{
+  color: #fff;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff, 
+               0 0 40px #fff;
+}
+
+a{
+  color: #484848;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer
+}
+a span{
+  transition: .5s linear
+}
+a:hover span:nth-child(1){
+  margin-right: 2px
+}
+a:hover span:nth-child(1):after{
+  content: "";
+}
+a:hover span:nth-child(2){
+  margin-left: 10px
+}
+a:hover span{
+    font-size: 35px;
+  color: #b200ff;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff, 
+               0 0 40px #fff;
+}
+
+</style>
+
+</head>
+<body style="background-color: #0094ff;">
+<header>
+ <div class="navbar">
+    <h1 class="logo"> <span>Art</span><span>Gallery</span></h1>
+    <ul class="nav">
+<li><a href="index.html"  style="padding-left: 30px"><span>Home</span></a></li>
+<li><a href="gallery.html" style="padding-left: 30px"><span>Gal<span>lery</span></span></a></li>
+<li><a href="events.html" class="active" style="padding-left: 30px"><span>Eve<span>nts</span></span></a></li>
+<li><a href="info.html" style="padding-left: 30px"><span>In<span>fo</span></span></a></li>
+</ul>
+</div>
+<hr/>
+<br>
+</header>
+
+<main>
+    <ul id="cards">
+        <li class="card" id="card_1">
+            <div class="card__content">
+                <div>
+                    <h2>Event</h2>
+                    <p>Museum Tour</p>
+                    <p>
+    New York<br>
+    Jul 21-Jul 21,2021<br>
+    3:30 to 4:30 pm<br>
+</p>
+                </div>
+                <figure>
+                    <img src="n1.jpg" alt="Image description">
+                </figure>
+            </div>
+        </li>
+        <li class="card" id="card_2">
+            <div class="card__content">
+                <div>
+                    <h2>Event</h2>
+                    <p>Art Exploration</p>
+                    <p>
+    New York<br>
+    Jul 21-Jul 21,2021<br>
+    3:30 to 4:30 pm<br>
+</p>
+                </div>
+                <figure>
+                    <img src="n2.jpg" alt="Image description">
+                </figure>
+            </div>
+        </li>
+        <li class="card" id="card_3">
+            <div class="card__content">
+                <div>
+                    <h2>Event</h2>
+                    <p>Art History</p>
+                    <p>
+    New York<br>
+    Jul 21-Jul 21,2021<br>
+    3:30 to 4:30 pm<br>
+</p>
+                </div>
+                <figure>
+                    <img src="n3.jpg" alt="Image description">
+                </figure>
+            </div>
+        </li>
+        <li class="card" id="card_4">
+            <div class="card__content">
+                <div>
+                    <h2>Event</h2>
+                    <p>Art with Culture</p>
+                    <p>
+    New York<br>
+    Jul 21-Jul 21,2021<br>
+    3:30 to 4:30 pm<br>
+</p>
+                </div>
+                <figure>
+                    <img src="n4.jpg" alt="Image description">
+                </figure>
+            </div>
+        </li>
+    </ul>
+</main>
+
+</body>
+</html>

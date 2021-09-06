@@ -1,0 +1,118 @@
+a{
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+a:hover{
+    color: blue;
+}
+p{
+ font-size: 25px;
+ width: 90%;
+ padding-left: 50px;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.active{
+	text-decoration: underline;
+
+}
+.navbar{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #D4D7DE;
+    width: 100%;
+    height: 70px;
+    z-index: 1;
+}
+.nav{
+    display: flex;
+    justify-content: right;
+    list-style: none;
+    margin-right: 15%;
+}
+
+h1{
+  color: #484848;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer
+}
+h1 span{
+  transition: .5s linear
+}
+h1:hover span:nth-child(1){
+  margin-right: 2px
+}
+h1:hover span:nth-child(1):after{
+  content: "--";
+}
+h1:hover span:nth-child(2){
+  margin-left: 10px
+}
+h1:hover span{
+  color: #fff;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff, 
+               0 0 40px #fff;
+}
+
+a{
+  color: #484848;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer
+}
+a span{
+  transition: .5s linear
+}
+a:hover span:nth-child(1){
+  margin-right: 2px
+}
+a:hover span:nth-child(1):after{
+  content: "";
+}
+a:hover span:nth-child(2){
+  margin-left: 10px
+}
+a:hover span{
+    font-size: 35px;
+  color: #b200ff;
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #fff, 
+               0 0 40px #fff;
+}
+
+    h2 {
+        padding-left: 40%;
+        color: black;
+        font-size: 30px;
+        text-transform: uppercase;
+        background: linear-gradient(to right,white 10%, lightpink 50%, darkgreen 60%);
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: white;
+        background-clip: text;
+        text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textclip 1.5s linear infinite;
+        display: inline-block;
+    }
+
+
+@keyframes textclip {
+    to {
+        background-position: 100% center;
+    }
+}
